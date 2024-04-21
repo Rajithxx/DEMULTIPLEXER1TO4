@@ -1,30 +1,10 @@
-`timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 08.01.2024 11:57:35
-// Design Name: 
-// Module Name: DeMUX1to4
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
-
-
-module DeMUX1to4(y0,y1,y2,y3,s1,s0,I);
-    input I,s0,s1;
-    output y0,y1,y2,y3;
-                     //Write the logic for 1 to 4 DEMUX in dataflow modeling
-
-
-
+module demux(s,i,y);
+input [1:0]s;
+input i;
+output [3:0]y;
+assign y[3]=(i&s[1]&s[0]);
+assign y[2]=(i&s[1]&~s[0]);
+assign y[1]=(i&~s[1]&s[0]);
+assign y[0]=(i&~s[1]&s[0]);
 endmodule
+
